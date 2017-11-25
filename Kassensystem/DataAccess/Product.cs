@@ -12,7 +12,9 @@ namespace DataAccess
         public int Id { get; set; }
         public String Description { get; set; }
         public double Price { get; set; }
+        public Productgroup Productgroup { get; set; }
         List<Discount> Discount { get; set; }
+
 
         public Product()
         {
