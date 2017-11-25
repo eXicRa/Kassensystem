@@ -50,14 +50,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.panelProductgroups = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panelEingabe.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.panelProductgroups.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelEingabe
@@ -292,18 +292,18 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "?";
             // 
-            // panel5
+            // panelProductgroups
             // 
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(423, 13);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(688, 113);
-            this.panel5.TabIndex = 2;
+            this.panelProductgroups.Controls.Add(this.label5);
+            this.panelProductgroups.Location = new System.Drawing.Point(423, 13);
+            this.panelProductgroups.Name = "panelProductgroups";
+            this.panelProductgroups.Size = new System.Drawing.Size(688, 113);
+            this.panelProductgroups.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(200, 39);
+            this.label5.Location = new System.Drawing.Point(271, 59);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 0;
@@ -314,7 +314,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1474, 633);
-            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panelProductgroups);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -331,8 +331,8 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
+            this.panelProductgroups.ResumeLayout(false);
+            this.panelProductgroups.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -361,7 +361,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panelProductgroups;
         private System.Windows.Forms.Label label5;
     }
 }

@@ -25,10 +25,12 @@ namespace Kassensystem
             foreach (var item in productgroups)
             {
                 Button b = new Button();
+                b.FlatStyle = FlatStyle.Flat;
                 b.Text = item.Description;
-                b.Location = new Point(100 * i, 0);
+                b.Size = new Size(150, 75);
+                b.Location = new Point(175 * i, 0);
 
-                panel3.Controls.Add(b);
+                panelProductgroups.Controls.Add(b);
                 i++;
             }
         }
