@@ -51,6 +51,9 @@ namespace DataAccess
             }
             return products;
         }
-
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
