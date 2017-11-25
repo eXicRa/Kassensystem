@@ -17,13 +17,26 @@ namespace Kassensystem
         public Form1()
         {
             InitializeComponent();
-            Product p = new Product(4);
+
+            var productgroups = Productgroup.GetAll();
+
+
+            int i = 0;
+            foreach (var item in productgroups)
+            {
+                Button b = new Button();
+                b.Text = item.Description;
+                b.Location = new Point(100 * i, 0);
+
+                panel3.Controls.Add(b);
+                i++;
+            }
         }
 
 
         private void button14_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
