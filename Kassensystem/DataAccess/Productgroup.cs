@@ -10,5 +10,6 @@ namespace DataAccess
     {
         public int Id { get; set; }
         public String Description { get; set; }
+        public List<Product> Products { get; set; }
     }
 }
