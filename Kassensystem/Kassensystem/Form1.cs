@@ -24,17 +24,34 @@ namespace Kassensystem
             int i = 0;
             foreach (var item in productgroups)
             {
-                Button b = new Button();
+                CustomButton b = new CustomButton();
+                b.Id = item.Id;
                 b.FlatStyle = FlatStyle.Flat;
                 b.Text = item.Description;
                 b.Size = new Size(150, 75);
                 b.Location = new Point(175 * i, 0);
+                b.Click += showProductsToProductgroup;
 
                 panelProductgroups.Controls.Add(b);
                 i++;
             }
         }
 
+
+        public void showProductsToProductgroup(object sender, EventArgs e)
+        {
+            var button = sender as CustomButton;
+            if (button != null)
+            {
+                Productgroup pg = new Productgroup(button.Id);
+                pg.GetAllProducts();
+                foreach (var item in pg.Products)
+                {
+                    listView1.Items.Add(item.ToString());
+                }
+
+            }
+        }
 
         private void button14_Click(object sender, EventArgs e)
         {

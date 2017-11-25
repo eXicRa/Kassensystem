@@ -46,5 +46,23 @@ namespace DataAccess
             }
             return productgroups;
         }
+
+        public void GetAllProducts()
+        {
+            MySqlParameter para = new MySqlParameter("@id", this.Id);
+            var reader = Database.ExcecuteCommand("SELECT * FROM Produkt where FK_Produktgruppe_ID = @id", new List<MySqlParameter> { para });
+            Products = new List<Product>();
+
+            while (reader.Read())
+            {
+                Product produkt = new Product();
+
+                produkt.Id = reader.GetInt32(0);
+                produkt.Description = reader.GetString(1);
+                produkt.Price = reader.GetDouble(2);
+
+                Products.Add(produkt);
+            }
+        }
     }
 }
