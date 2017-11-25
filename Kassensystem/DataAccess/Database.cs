@@ -18,6 +18,7 @@ namespace DataAccess
                             "PASSWORD=;";
 
         private static MySqlConnection _sqlConnection;
+        private static MySqlDataReader reader;
 
         private static MySqlConnection GetSqlConnection()
         {
@@ -41,7 +42,11 @@ namespace DataAccess
                     command.Parameters.Add(sqlParameter);
                 }
             }
-            MySqlDataReader reader;
+
+            if (reader != null && !reader.IsClosed)
+            {
+                reader.Close();
+            }
             reader = command.ExecuteReader();
             return reader;
         }

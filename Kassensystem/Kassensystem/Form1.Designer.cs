@@ -52,6 +52,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panelProductgroups = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.panelEingabe.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -260,6 +261,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.listView1);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(423, 132);
             this.panel3.Name = "panel3";
@@ -308,6 +310,14 @@
             this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Productgroups";
+            // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(174, 32);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(266, 207);
+            this.listView1.TabIndex = 1;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
@@ -363,6 +373,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panelProductgroups;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 
