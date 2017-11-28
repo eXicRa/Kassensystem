@@ -47,12 +47,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panelProductgroups = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.panelEingabe.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -268,6 +268,15 @@
             this.panel3.Size = new System.Drawing.Size(688, 489);
             this.panel3.TabIndex = 3;
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(174, 32);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(266, 207);
+            this.listView1.TabIndex = 1;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -310,14 +319,6 @@
             this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Productgroups";
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(174, 32);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(266, 207);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 

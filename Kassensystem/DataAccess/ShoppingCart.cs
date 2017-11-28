@@ -8,5 +8,11 @@ namespace DataAccess //Yolo very nice shopping cart
 {
     class ShoppingCart
     {
+        public List<Product> Content;
+
+        public ShoppingCart()
+        {
+            Content = new List<Product>();
+        }
     }
 }
