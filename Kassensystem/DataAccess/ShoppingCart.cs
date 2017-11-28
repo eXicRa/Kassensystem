@@ -8,11 +8,34 @@ namespace DataAccess //Yolo very nice shopping cart
 {
     class ShoppingCart
     {
-        public List<Product> Content;
+        public List<Orderposition> OrderPositions;
 
         public ShoppingCart()
         {
-            Content = new List<Product>();
+            OrderPositions = new List<Orderposition>();
+
+        }
+
+        public void FreeCard()
+        {
+            if (OrderPositions != null)
+            {
+                OrderPositions.Clear();
+            }
+        }
+
+        public void AddProduct(Product item, int amount = 1)
+        {
+            if (item != null)
+            {
+
+                Orderposition orderPos = new Orderposition();
+
+                orderPos.Product = item;
+                orderPos.Amount = amount;
+
+                OrderPositions.Add(orderPos);
+            }
         }
     }
 }
