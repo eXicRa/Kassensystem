@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -68,5 +69,11 @@ namespace Kassensystem
         {
 
         }
+
+        private void flowLayoutPanelProducts_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
+
