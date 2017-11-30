@@ -25,7 +25,7 @@ namespace Kassensystem
             foreach (var item in productgroups)
             {
                 CustomButton b = new CustomButton();
-                b.Id = item.Id;
+                b.Obj = item;
                 b.FlatStyle = FlatStyle.Flat;
                 b.Text = item.Description;
                 b.Size = new Size(150, 75);
@@ -43,13 +43,24 @@ namespace Kassensystem
             var button = sender as CustomButton;
             if (button != null)
             {
-                Productgroup pg = new Productgroup(button.Id);
-                pg.GetAllProducts();
-                foreach (var item in pg.Products)
+                var progroup = button.Obj as Productgroup;
+                if (progroup != null)
                 {
-                    listView1.Items.Add(item.ToString());
+                    flowLayoutPanelProducts.Controls.Clear();
+                    Productgroup pg = new Productgroup(progroup.Id);
+                    pg.GetAllProducts();
+                    foreach (var item in pg.Products)
+                    {
+                        //flowLayoutPanelProducts
+                        CustomButton b = new CustomButton();
+                        b.Obj = item;
+                        b.Size = new Size(100, 50);
+                        b.FlatStyle = FlatStyle.Flat;
+                        b.BackColor = Color.Orange;
+                        b.Text = $"{item.Description} {item.Price}€";
+                        flowLayoutPanelProducts.Controls.Add(b);
+                    }
                 }
-
             }
         }
 

@@ -52,7 +52,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panelProductgroups = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.flowLayoutPanelProducts = new System.Windows.Forms.FlowLayoutPanel();
             this.panelEingabe.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -261,7 +261,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.listView1);
+            this.panel3.Controls.Add(this.flowLayoutPanelProducts);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(423, 132);
             this.panel3.Name = "panel3";
@@ -271,7 +271,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(289, 285);
+            this.label3.Location = new System.Drawing.Point(253, 377);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 13);
             this.label3.TabIndex = 0;
@@ -311,13 +311,13 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Productgroups";
             // 
-            // listView1
+            // flowLayoutPanelProducts
             // 
-            this.listView1.Location = new System.Drawing.Point(174, 32);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(266, 207);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.flowLayoutPanelProducts.AutoScroll = true;
+            this.flowLayoutPanelProducts.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanelProducts.Name = "flowLayoutPanelProducts";
+            this.flowLayoutPanelProducts.Size = new System.Drawing.Size(682, 312);
+            this.flowLayoutPanelProducts.TabIndex = 1;
             // 
             // Form1
             // 
@@ -330,6 +330,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelEingabe);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Form1";
             this.Text = "Form1";
             this.panelEingabe.ResumeLayout(false);
@@ -373,7 +374,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panelProductgroups;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelProducts;
     }
 }
 

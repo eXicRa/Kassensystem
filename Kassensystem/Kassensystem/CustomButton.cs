@@ -9,6 +9,6 @@ namespace Kassensystem
 {
     class CustomButton : Button
     {
-        public int Id { get; set; }
+        public Object Obj { get; set; }
     }
 }
