@@ -1,5 +1,5 @@
 
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +18,9 @@ namespace Kassensystem
         public Form1()
         {
             InitializeComponent();
+
+            DigitalDisplayControl d = new DigitalDisplayControl();
+            panel1.Controls.Add(d);
 
             var productgroups = Productgroup.GetAll();
 
