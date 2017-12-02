@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Kassensystem
+namespace CustomComponents
 {
-    class CustomButton : Button
+    public class CustomButton : Button
     {
         public Object Obj { get; set; }
     }

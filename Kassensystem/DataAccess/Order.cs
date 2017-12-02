@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    class Order
+    public class Order
     {
         public int Id { get; set; }
         DateTime Date { get; set; }
-        Employee Employee{ get; set; }
+        Employee Employee { get; set; }
     }
 }

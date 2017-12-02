@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    class Orderposition
+    public class Orderposition
     {
         public int Id { get; set; }
         public int Amount { get; set; }

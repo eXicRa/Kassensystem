@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelEingabe = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
@@ -47,7 +48,17 @@
             this.tb_NumpadDisplay = new System.Windows.Forms.TextBox();
             this.panelProductgroups = new System.Windows.Forms.Panel();
             this.flowLayoutPanelProducts = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button14 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button15 = new System.Windows.Forms.Button();
+            this.flowLayoutPanelShoppingCart = new System.Windows.Forms.FlowLayoutPanel();
+            this.button16 = new System.Windows.Forms.Button();
             this.panelEingabe.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.flowLayoutPanelShoppingCart.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelEingabe
@@ -234,7 +245,8 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(13, 132);
+            this.panel2.Controls.Add(this.flowLayoutPanelShoppingCart);
+            this.panel2.Location = new System.Drawing.Point(12, 132);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(404, 506);
             this.panel2.TabIndex = 2;
@@ -268,15 +280,87 @@
             this.flowLayoutPanelProducts.TabIndex = 1;
             this.flowLayoutPanelProducts.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelProducts_Paint);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "fdasdasd";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(230, 13);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(81, 26);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "23";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // button14
+            // 
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Location = new System.Drawing.Point(192, 13);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(32, 26);
+            this.button14.TabIndex = 2;
+            this.button14.Text = "-";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.button16);
+            this.panel3.Controls.Add(this.button15);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.button14);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(398, 53);
+            this.panel3.TabIndex = 4;
+            // 
+            // button15
+            // 
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Location = new System.Drawing.Point(317, 13);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(32, 26);
+            this.button15.TabIndex = 3;
+            this.button15.Text = "+";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanelShoppingCart
+            // 
+            this.flowLayoutPanelShoppingCart.Controls.Add(this.panel3);
+            this.flowLayoutPanelShoppingCart.Location = new System.Drawing.Point(3, 50);
+            this.flowLayoutPanelShoppingCart.Name = "flowLayoutPanelShoppingCart";
+            this.flowLayoutPanelShoppingCart.Size = new System.Drawing.Size(398, 449);
+            this.flowLayoutPanelShoppingCart.TabIndex = 3;
+            // 
+            // button16
+            // 
+            this.button16.BackColor = System.Drawing.Color.Transparent;
+            this.button16.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button16.BackgroundImage")));
+            this.button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button16.Location = new System.Drawing.Point(355, 13);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(32, 26);
+            this.button16.TabIndex = 4;
+            this.button16.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1493, 650);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.tb_NumpadDisplay);
             this.Controls.Add(this.flowLayoutPanelProducts);
             this.Controls.Add(this.panelProductgroups);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelEingabe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -284,6 +368,10 @@
             this.Text = "-";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelEingabe.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.flowLayoutPanelShoppingCart.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,6 +398,13 @@
         private System.Windows.Forms.Panel panelProductgroups;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelProducts;
         private System.Windows.Forms.TextBox tb_NumpadDisplay;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelShoppingCart;
+        private System.Windows.Forms.Button button16;
     }
 }
 
