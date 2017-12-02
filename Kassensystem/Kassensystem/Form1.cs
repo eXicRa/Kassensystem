@@ -19,9 +19,6 @@ namespace Kassensystem
         {
             InitializeComponent();
 
-            DigitalDisplayControl d = new DigitalDisplayControl();
-            panel1.Controls.Add(d);
-
             var productgroups = Productgroup.GetAll();
 
 
