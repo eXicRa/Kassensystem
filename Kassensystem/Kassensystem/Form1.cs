@@ -74,6 +74,20 @@ namespace Kassensystem
         {
 
         }
+
+        private void button_NumpadClick(object sender, EventArgs e)
+        {
+            var buttonVar = sender as Button;
+            if (buttonVar != null)
+            {
+                tb_NumpadDisplay.Text += buttonVar.Text;
+            }
+        }
+
+        private void button_ClearNumpad(object sender, EventArgs e)
+        {
+            tb_NumpadDisplay.Clear();
+        }
     }
 }
 

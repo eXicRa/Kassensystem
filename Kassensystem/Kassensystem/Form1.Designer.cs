@@ -44,7 +44,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.tb_NumpadDisplay = new System.Windows.Forms.TextBox();
             this.panelProductgroups = new System.Windows.Forms.Panel();
             this.flowLayoutPanelProducts = new System.Windows.Forms.FlowLayoutPanel();
             this.panelEingabe.SuspendLayout();
@@ -52,7 +52,7 @@
             // 
             // panelEingabe
             // 
-            this.panelEingabe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelEingabe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelEingabe.Controls.Add(this.button13);
             this.panelEingabe.Controls.Add(this.button12);
             this.panelEingabe.Controls.Add(this.button11);
@@ -92,6 +92,7 @@
             this.button12.TabIndex = 11;
             this.button12.Text = "C";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button_ClearNumpad);
             // 
             // button11
             // 
@@ -103,6 +104,7 @@
             this.button11.TabIndex = 10;
             this.button11.Text = ",";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button_NumpadClick);
             // 
             // button10
             // 
@@ -125,6 +127,7 @@
             this.button9.TabIndex = 8;
             this.button9.Text = "9";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button_NumpadClick);
             // 
             // button8
             // 
@@ -136,6 +139,7 @@
             this.button8.TabIndex = 7;
             this.button8.Text = "8";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button_NumpadClick);
             // 
             // button7
             // 
@@ -147,6 +151,7 @@
             this.button7.TabIndex = 6;
             this.button7.Text = "7";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button_NumpadClick);
             // 
             // button6
             // 
@@ -158,6 +163,7 @@
             this.button6.TabIndex = 5;
             this.button6.Text = "6";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button_NumpadClick);
             // 
             // button5
             // 
@@ -169,6 +175,7 @@
             this.button5.TabIndex = 4;
             this.button5.Text = "5";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button_NumpadClick);
             // 
             // button4
             // 
@@ -180,6 +187,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "4";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button_NumpadClick);
             // 
             // button3
             // 
@@ -191,6 +199,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "3";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button_NumpadClick);
             // 
             // button2
             // 
@@ -202,6 +211,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button_NumpadClick);
             // 
             // button1
             // 
@@ -213,6 +223,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button_NumpadClick);
             // 
             // panel1
             // 
@@ -228,12 +239,14 @@
             this.panel2.Size = new System.Drawing.Size(404, 506);
             this.panel2.TabIndex = 2;
             // 
-            // panel4
+            // tb_NumpadDisplay
             // 
-            this.panel4.Location = new System.Drawing.Point(1138, 14);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(345, 113);
-            this.panel4.TabIndex = 2;
+            this.tb_NumpadDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_NumpadDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_NumpadDisplay.Location = new System.Drawing.Point(1138, 12);
+            this.tb_NumpadDisplay.Name = "tb_NumpadDisplay";
+            this.tb_NumpadDisplay.Size = new System.Drawing.Size(345, 67);
+            this.tb_NumpadDisplay.TabIndex = 0;
             // 
             // panelProductgroups
             // 
@@ -260,18 +273,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1493, 650);
+            this.Controls.Add(this.tb_NumpadDisplay);
             this.Controls.Add(this.flowLayoutPanelProducts);
             this.Controls.Add(this.panelProductgroups);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelEingabe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "-";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelEingabe.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -293,9 +307,9 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panelProductgroups;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelProducts;
+        private System.Windows.Forms.TextBox tb_NumpadDisplay;
     }
 }
 
