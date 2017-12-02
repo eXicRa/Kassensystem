@@ -45,11 +45,20 @@ namespace DataAccess
         {
             if (OrderPositions != null)
             {
+
                 foreach (Orderposition orderPos_ in OrderPositions)
                 {
                     if (orderPos_.Product == item)
                     {
-                        orderPos_.Amount = newAmount;
+                        //Amount <= 0, so delete the order pos with product
+                        if (newAmount <= 0)
+                        {
+                            DeleteProductFromShoppingCard(item);
+                        }
+                        else //Amount > 0, so the amount changed + or -
+                        {
+                            orderPos_.Amount = newAmount;
+                        }
                     }
                 }
 
