@@ -59,7 +59,9 @@
             this.tb_NumpadDisplay = new System.Windows.Forms.TextBox();
             this.panelProductgroups = new System.Windows.Forms.Panel();
             this.flowLayoutPanelProducts = new System.Windows.Forms.FlowLayoutPanel();
+
             this.button17 = new System.Windows.Forms.Button();
+
             this.panelEingabe.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -272,20 +274,28 @@
             // labelMwst
             // 
             this.labelMwst.AutoSize = true;
-            this.labelMwst.Location = new System.Drawing.Point(352, 125);
-            this.labelMwst.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+
+
+
+            this.labelMwst.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMwst.Location = new System.Drawing.Point(248, 77);
             this.labelMwst.Name = "labelMwst";
-            this.labelMwst.Size = new System.Drawing.Size(51, 20);
+            this.labelMwst.Size = new System.Drawing.Size(60, 24);
+
             this.labelMwst.TabIndex = 6;
             this.labelMwst.Text = "label2";
             // 
             // radioButtonGlobal
             // 
             this.radioButtonGlobal.AutoSize = true;
+
             this.radioButtonGlobal.Location = new System.Drawing.Point(159, 125);
             this.radioButtonGlobal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.radioButtonGlobal.Name = "radioButtonGlobal";
             this.radioButtonGlobal.Size = new System.Drawing.Size(149, 24);
+
+
+
             this.radioButtonGlobal.TabIndex = 5;
             this.radioButtonGlobal.Text = "Zum Mitnehmen";
             this.radioButtonGlobal.UseVisualStyleBackColor = true;
@@ -293,6 +303,7 @@
             // radioButtonLocal
             // 
             this.radioButtonLocal.AutoSize = true;
+
             this.radioButtonLocal.Checked = true;
             this.radioButtonLocal.Location = new System.Drawing.Point(22, 125);
             this.radioButtonLocal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -300,6 +311,8 @@
             this.radioButtonLocal.Size = new System.Drawing.Size(121, 24);
             this.radioButtonLocal.TabIndex = 4;
             this.radioButtonLocal.TabStop = true;
+
+
             this.radioButtonLocal.Text = "Lokal Essen";
             this.radioButtonLocal.UseVisualStyleBackColor = true;
             this.radioButtonLocal.CheckedChanged += new System.EventHandler(this.radioButtonLocal_CheckedChanged);
@@ -311,7 +324,10 @@
             this.textBoxTotalAmount.Location = new System.Drawing.Point(-2, -2);
             this.textBoxTotalAmount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxTotalAmount.Name = "textBoxTotalAmount";
+
             this.textBoxTotalAmount.Size = new System.Drawing.Size(606, 97);
+
+
             this.textBoxTotalAmount.TabIndex = 3;
             // 
             // panel2
@@ -434,6 +450,7 @@
             this.flowLayoutPanelProducts.TabIndex = 1;
             this.flowLayoutPanelProducts.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelProducts_Paint);
             // 
+
             // button17
             // 
             this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -447,12 +464,15 @@
             this.button17.UseVisualStyleBackColor = true;
             this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
+
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.ClientSize = new System.Drawing.Size(1912, 1038);
             this.Controls.Add(this.button17);
+
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tb_NumpadDisplay);
             this.Controls.Add(this.flowLayoutPanelProducts);
