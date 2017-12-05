@@ -137,22 +137,22 @@ namespace DataAccess
         {
             if (this.shoppingCartItems != null)
             {
-                foreach(ShoppingCartItem item in shoppingCartItems)
+                foreach (ShoppingCartItem item in shoppingCartItems)
                 {
-                    Order order = new Order;
+                    Order order = new Order();
                     order.Date = DateTime.Now;
-                    Employee employee = new Employee;
+                    Employee employee = new Employee();
                     employee.Id = 1;
                     order.Employee = employee;
 
-                           
+
                     string sql = $"INSERT INTO bestellung (Datum,FK_Mitarbeiter_ID) VALUES ({order.Date.ToString("dd-MM-yyyy")}," +
                         $"{order.Employee.Id.ToString()})";
                     Database.ExcecuteCommand(sql);
                 }
-                
+
             }
-            
+
         }
 
 
