@@ -11,12 +11,14 @@ namespace DataAccess
 
         public List<ShoppingCartItem> shoppingCartItems;
         private TextBox tbTotalAmount;
+        public int MwSt { get; set; }
 
         //Create method of shopping card, creates a new shopping card list of type OrderPositions
         public ShoppingCart(TextBox tb)
         {
             shoppingCartItems = new List<ShoppingCartItem>();
             tbTotalAmount = tb;
+            MwSt = 19; //default 19%
         }
         //Method cleans the shopping card list, so all objects will be deleted
         public void Free()
@@ -36,6 +38,7 @@ namespace DataAccess
                 totalAmount += tempPrice;
             }
 
+            totalAmount = (totalAmount * MwSt / 100) + totalAmount;
             tbTotalAmount.Text = totalAmount.ToString("c2");
         }
 

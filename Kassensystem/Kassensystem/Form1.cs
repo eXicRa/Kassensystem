@@ -24,9 +24,10 @@ namespace Kassensystem
 
             shoppingCart = new ShoppingCart(textBoxTotalAmount);
             panel3.Visible = false;
+            labelMwst.Text = "";
+            radioButtonLocal.Checked = true;
 
             var productgroups = Productgroup.GetAll();
-
 
             int i = 0;
             foreach (var item in productgroups)
@@ -219,10 +220,14 @@ namespace Kassensystem
             if (radioButtonLocal.Checked)
             {
                 labelMwst.Text = "19%";
+                shoppingCart.MwSt = 19;
+                shoppingCart.CalculateTotalAmount();
             }
             else
             {
                 labelMwst.Text = "7%";
+                shoppingCart.MwSt = 7;
+                shoppingCart.CalculateTotalAmount();
             }
         }
     }

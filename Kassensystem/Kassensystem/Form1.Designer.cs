@@ -44,6 +44,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelMwst = new System.Windows.Forms.Label();
+            this.radioButtonGlobal = new System.Windows.Forms.RadioButton();
+            this.radioButtonLocal = new System.Windows.Forms.RadioButton();
             this.textBoxTotalAmount = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanelShoppingCart = new System.Windows.Forms.FlowLayoutPanel();
@@ -56,9 +59,6 @@
             this.tb_NumpadDisplay = new System.Windows.Forms.TextBox();
             this.panelProductgroups = new System.Windows.Forms.Panel();
             this.flowLayoutPanelProducts = new System.Windows.Forms.FlowLayoutPanel();
-            this.radioButtonLocal = new System.Windows.Forms.RadioButton();
-            this.radioButtonGlobal = new System.Windows.Forms.RadioButton();
-            this.labelMwst = new System.Windows.Forms.Label();
             this.panelEingabe.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -253,13 +253,44 @@
             this.panel1.Size = new System.Drawing.Size(404, 113);
             this.panel1.TabIndex = 1;
             // 
+            // labelMwst
+            // 
+            this.labelMwst.AutoSize = true;
+            this.labelMwst.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMwst.Location = new System.Drawing.Point(248, 77);
+            this.labelMwst.Name = "labelMwst";
+            this.labelMwst.Size = new System.Drawing.Size(60, 24);
+            this.labelMwst.TabIndex = 6;
+            this.labelMwst.Text = "label2";
+            // 
+            // radioButtonGlobal
+            // 
+            this.radioButtonGlobal.AutoSize = true;
+            this.radioButtonGlobal.Location = new System.Drawing.Point(106, 81);
+            this.radioButtonGlobal.Name = "radioButtonGlobal";
+            this.radioButtonGlobal.Size = new System.Drawing.Size(101, 17);
+            this.radioButtonGlobal.TabIndex = 5;
+            this.radioButtonGlobal.Text = "Zum Mitnehmen";
+            this.radioButtonGlobal.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonLocal
+            // 
+            this.radioButtonLocal.AutoSize = true;
+            this.radioButtonLocal.Location = new System.Drawing.Point(15, 81);
+            this.radioButtonLocal.Name = "radioButtonLocal";
+            this.radioButtonLocal.Size = new System.Drawing.Size(83, 17);
+            this.radioButtonLocal.TabIndex = 4;
+            this.radioButtonLocal.Text = "Lokal Essen";
+            this.radioButtonLocal.UseVisualStyleBackColor = true;
+            this.radioButtonLocal.CheckedChanged += new System.EventHandler(this.radioButtonLocal_CheckedChanged);
+            // 
             // textBoxTotalAmount
             // 
             this.textBoxTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTotalAmount.Location = new System.Drawing.Point(-1, -1);
             this.textBoxTotalAmount.Name = "textBoxTotalAmount";
-            this.textBoxTotalAmount.Size = new System.Drawing.Size(405, 67);
+            this.textBoxTotalAmount.Size = new System.Drawing.Size(393, 67);
             this.textBoxTotalAmount.TabIndex = 3;
             // 
             // panel2
@@ -371,43 +402,11 @@
             this.flowLayoutPanelProducts.TabIndex = 1;
             this.flowLayoutPanelProducts.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelProducts_Paint);
             // 
-            // radioButtonLocal
-            // 
-            this.radioButtonLocal.AutoSize = true;
-            this.radioButtonLocal.Checked = true;
-            this.radioButtonLocal.Location = new System.Drawing.Point(15, 81);
-            this.radioButtonLocal.Name = "radioButtonLocal";
-            this.radioButtonLocal.Size = new System.Drawing.Size(83, 17);
-            this.radioButtonLocal.TabIndex = 4;
-            this.radioButtonLocal.TabStop = true;
-            this.radioButtonLocal.Text = "Lokal Essen";
-            this.radioButtonLocal.UseVisualStyleBackColor = true;
-            this.radioButtonLocal.CheckedChanged += new System.EventHandler(this.radioButtonLocal_CheckedChanged);
-            // 
-            // radioButtonGlobal
-            // 
-            this.radioButtonGlobal.AutoSize = true;
-            this.radioButtonGlobal.Location = new System.Drawing.Point(106, 81);
-            this.radioButtonGlobal.Name = "radioButtonGlobal";
-            this.radioButtonGlobal.Size = new System.Drawing.Size(101, 17);
-            this.radioButtonGlobal.TabIndex = 5;
-            this.radioButtonGlobal.Text = "Zum Mitnehmen";
-            this.radioButtonGlobal.UseVisualStyleBackColor = true;
-            // 
-            // labelMwst
-            // 
-            this.labelMwst.AutoSize = true;
-            this.labelMwst.Location = new System.Drawing.Point(235, 81);
-            this.labelMwst.Name = "labelMwst";
-            this.labelMwst.Size = new System.Drawing.Size(35, 13);
-            this.labelMwst.TabIndex = 6;
-            this.labelMwst.Text = "label2";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1493, 650);
+            this.ClientSize = new System.Drawing.Size(1493, 653);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tb_NumpadDisplay);
             this.Controls.Add(this.flowLayoutPanelProducts);
