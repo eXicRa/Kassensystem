@@ -15,7 +15,7 @@ namespace DataAccess
         private readonly static string connectionString = "SERVER=localhost;" +
                             "DATABASE=Kassensystem;" +
                             "UID=root;" +
-                            "PASSWORD=mysuse2015!;";
+                            "PASSWORD=;";
 
         private static MySqlConnection _sqlConnection;
         private static MySqlDataReader reader;

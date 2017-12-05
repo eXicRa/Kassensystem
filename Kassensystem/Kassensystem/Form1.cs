@@ -16,11 +16,13 @@ namespace Kassensystem
 {
     public partial class Form1 : Form
     {
-        private ShoppingCart shoppingCart = new ShoppingCart();
+        private ShoppingCart shoppingCart;
 
         public Form1()
         {
             InitializeComponent();
+
+            shoppingCart = new ShoppingCart(textBoxTotalAmount);
             panel3.Visible = false;
 
             var productgroups = Productgroup.GetAll();
@@ -80,7 +82,8 @@ namespace Kassensystem
                 {
                     ShoppingCartItem item;
                     bool isNewProduct;
-                    if (int.TryParse(tb_NumpadDisplay.Text, out int amount))
+                    int amount;
+                    if (int.TryParse(tb_NumpadDisplay.Text, out amount))
                     {
                         item = shoppingCart.AddProduct(product, out isNewProduct, amount);
                     }
@@ -130,7 +133,7 @@ namespace Kassensystem
             productLabel.Size = new System.Drawing.Size(75, 20);
             productLabel.TabIndex = 0;
             var price = item.orderposition.Amount * item.orderposition.Product.Price;
-            productLabel.Text = $"{price}€ {item.orderposition.Product}";
+            productLabel.Text = price.ToString("c2") + $" {item.orderposition.Product}";
 
             TextBox amountTextBox = new TextBox();
 
@@ -209,6 +212,18 @@ namespace Kassensystem
         private void button_ClearNumpad(object sender, EventArgs e)
         {
             tb_NumpadDisplay.Clear();
+        }
+
+        private void radioButtonLocal_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonLocal.Checked)
+            {
+                labelMwst.Text = "19%";
+            }
+            else
+            {
+                labelMwst.Text = "7%";
+            }
         }
     }
 }

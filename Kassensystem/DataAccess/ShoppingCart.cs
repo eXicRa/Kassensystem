@@ -1,6 +1,7 @@
 ﻿using CustomComponents;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace DataAccess
 {
@@ -9,12 +10,13 @@ namespace DataAccess
     {
 
         public List<ShoppingCartItem> shoppingCartItems;
+        private TextBox tbTotalAmount;
 
         //Create method of shopping card, creates a new shopping card list of type OrderPositions
-        public ShoppingCart()
+        public ShoppingCart(TextBox tb)
         {
             shoppingCartItems = new List<ShoppingCartItem>();
-
+            tbTotalAmount = tb;
         }
         //Method cleans the shopping card list, so all objects will be deleted
         public void Free()
@@ -24,6 +26,19 @@ namespace DataAccess
                 shoppingCartItems.Clear();
             }
         }
+
+        public void CalculateTotalAmount()
+        {
+            double totalAmount = 0;
+            foreach (var item in shoppingCartItems)
+            {
+                var tempPrice = item.orderposition.Amount * item.orderposition.Product.Price;
+                totalAmount += tempPrice;
+            }
+
+            tbTotalAmount.Text = totalAmount.ToString("c2");
+        }
+
         //Method adds a new product object to the shopping card list, default value of amount is 1
         public ShoppingCartItem AddProduct(Product product, out bool isNewProduct, int amount = 1)
         {
@@ -32,10 +47,11 @@ namespace DataAccess
             {
                 foreach (var item in shoppingCartItems)
                 {
-                    if (item.orderposition.Product == product)
+                    if (item.orderposition.Product.Id == product.Id)
                     {
                         Alter(item, item.orderposition.Amount + amount);
                         isNewProduct = false;
+                        CalculateTotalAmount();
                         return item;
                     }
                 }
@@ -49,6 +65,7 @@ namespace DataAccess
 
                 shoppingCartItems.Add(shoppingCartItem);
 
+                CalculateTotalAmount();
                 return shoppingCartItem;
             }
             return null;
@@ -65,9 +82,11 @@ namespace DataAccess
                 }
                 shoppingCartItem.orderposition.Amount = newAmount;
 
+                CalculateTotalAmount();
+
                 shoppingCartItem.textBox.Text = newAmount.ToString();
                 var price = shoppingCartItem.orderposition.Amount * shoppingCartItem.orderposition.Product.Price;
-                shoppingCartItem.label.Text = $"{price}€ {shoppingCartItem.orderposition.Product.Description}";
+                shoppingCartItem.label.Text = price.ToString("c2") + $" {shoppingCartItem.orderposition.Product.Description}";
             }
         }
 
@@ -82,6 +101,7 @@ namespace DataAccess
                     {
                         item_.panel.Parent.Controls.Remove(item_.panel);
                         shoppingCartItems.Remove(item_);
+                        CalculateTotalAmount();
                         break;
                     }
                 }

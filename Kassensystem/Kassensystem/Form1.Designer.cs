@@ -44,21 +44,26 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxTotalAmount = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.tb_NumpadDisplay = new System.Windows.Forms.TextBox();
-            this.panelProductgroups = new System.Windows.Forms.Panel();
-            this.flowLayoutPanelProducts = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelShoppingCart = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button14 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button15 = new System.Windows.Forms.Button();
-            this.flowLayoutPanelShoppingCart = new System.Windows.Forms.FlowLayoutPanel();
-            this.button16 = new System.Windows.Forms.Button();
+            this.tb_NumpadDisplay = new System.Windows.Forms.TextBox();
+            this.panelProductgroups = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelProducts = new System.Windows.Forms.FlowLayoutPanel();
+            this.radioButtonLocal = new System.Windows.Forms.RadioButton();
+            this.radioButtonGlobal = new System.Windows.Forms.RadioButton();
+            this.labelMwst = new System.Windows.Forms.Label();
             this.panelEingabe.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.flowLayoutPanelShoppingCart.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelEingabe
@@ -127,6 +132,7 @@
             this.button10.TabIndex = 9;
             this.button10.Text = "0";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button_NumpadClick);
             // 
             // button9
             // 
@@ -238,10 +244,23 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelMwst);
+            this.panel1.Controls.Add(this.radioButtonGlobal);
+            this.panel1.Controls.Add(this.radioButtonLocal);
+            this.panel1.Controls.Add(this.textBoxTotalAmount);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(404, 113);
             this.panel1.TabIndex = 1;
+            // 
+            // textBoxTotalAmount
+            // 
+            this.textBoxTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalAmount.Location = new System.Drawing.Point(-1, -1);
+            this.textBoxTotalAmount.Name = "textBoxTotalAmount";
+            this.textBoxTotalAmount.Size = new System.Drawing.Size(405, 67);
+            this.textBoxTotalAmount.TabIndex = 3;
             // 
             // panel2
             // 
@@ -251,34 +270,47 @@
             this.panel2.Size = new System.Drawing.Size(404, 506);
             this.panel2.TabIndex = 2;
             // 
-            // tb_NumpadDisplay
+            // flowLayoutPanelShoppingCart
             // 
-            this.tb_NumpadDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_NumpadDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_NumpadDisplay.Location = new System.Drawing.Point(1138, 12);
-            this.tb_NumpadDisplay.Name = "tb_NumpadDisplay";
-            this.tb_NumpadDisplay.Size = new System.Drawing.Size(345, 67);
-            this.tb_NumpadDisplay.TabIndex = 0;
+            this.flowLayoutPanelShoppingCart.Controls.Add(this.panel3);
+            this.flowLayoutPanelShoppingCart.Location = new System.Drawing.Point(3, 50);
+            this.flowLayoutPanelShoppingCart.Name = "flowLayoutPanelShoppingCart";
+            this.flowLayoutPanelShoppingCart.Size = new System.Drawing.Size(398, 449);
+            this.flowLayoutPanelShoppingCart.TabIndex = 3;
             // 
-            // panelProductgroups
+            // panel3
             // 
-            this.panelProductgroups.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelProductgroups.Location = new System.Drawing.Point(423, 13);
-            this.panelProductgroups.Name = "panelProductgroups";
-            this.panelProductgroups.Size = new System.Drawing.Size(709, 113);
-            this.panelProductgroups.TabIndex = 2;
+            this.panel3.Controls.Add(this.button16);
+            this.panel3.Controls.Add(this.button15);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.button14);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(398, 53);
+            this.panel3.TabIndex = 4;
             // 
-            // flowLayoutPanelProducts
+            // button16
             // 
-            this.flowLayoutPanelProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelProducts.AutoScroll = true;
-            this.flowLayoutPanelProducts.Location = new System.Drawing.Point(423, 133);
-            this.flowLayoutPanelProducts.Name = "flowLayoutPanelProducts";
-            this.flowLayoutPanelProducts.Size = new System.Drawing.Size(709, 505);
-            this.flowLayoutPanelProducts.TabIndex = 1;
-            this.flowLayoutPanelProducts.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelProducts_Paint);
+            this.button16.BackColor = System.Drawing.Color.Transparent;
+            this.button16.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button16.BackgroundImage")));
+            this.button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button16.Location = new System.Drawing.Point(355, 13);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(32, 26);
+            this.button16.TabIndex = 4;
+            this.button16.UseVisualStyleBackColor = false;
+            // 
+            // button15
+            // 
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Location = new System.Drawing.Point(317, 13);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(32, 26);
+            this.button15.TabIndex = 3;
+            this.button15.Text = "+";
+            this.button15.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -310,47 +342,66 @@
             this.button14.Text = "-";
             this.button14.UseVisualStyleBackColor = true;
             // 
-            // panel3
+            // tb_NumpadDisplay
             // 
-            this.panel3.Controls.Add(this.button16);
-            this.panel3.Controls.Add(this.button15);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.button14);
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(398, 53);
-            this.panel3.TabIndex = 4;
+            this.tb_NumpadDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_NumpadDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_NumpadDisplay.Location = new System.Drawing.Point(1138, 12);
+            this.tb_NumpadDisplay.Name = "tb_NumpadDisplay";
+            this.tb_NumpadDisplay.Size = new System.Drawing.Size(345, 67);
+            this.tb_NumpadDisplay.TabIndex = 0;
             // 
-            // button15
+            // panelProductgroups
             // 
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Location = new System.Drawing.Point(317, 13);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(32, 26);
-            this.button15.TabIndex = 3;
-            this.button15.Text = "+";
-            this.button15.UseVisualStyleBackColor = true;
+            this.panelProductgroups.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelProductgroups.Location = new System.Drawing.Point(423, 13);
+            this.panelProductgroups.Name = "panelProductgroups";
+            this.panelProductgroups.Size = new System.Drawing.Size(709, 113);
+            this.panelProductgroups.TabIndex = 2;
             // 
-            // flowLayoutPanelShoppingCart
+            // flowLayoutPanelProducts
             // 
-            this.flowLayoutPanelShoppingCart.Controls.Add(this.panel3);
-            this.flowLayoutPanelShoppingCart.Location = new System.Drawing.Point(3, 50);
-            this.flowLayoutPanelShoppingCart.Name = "flowLayoutPanelShoppingCart";
-            this.flowLayoutPanelShoppingCart.Size = new System.Drawing.Size(398, 449);
-            this.flowLayoutPanelShoppingCart.TabIndex = 3;
+            this.flowLayoutPanelProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelProducts.AutoScroll = true;
+            this.flowLayoutPanelProducts.Location = new System.Drawing.Point(423, 133);
+            this.flowLayoutPanelProducts.Name = "flowLayoutPanelProducts";
+            this.flowLayoutPanelProducts.Size = new System.Drawing.Size(709, 505);
+            this.flowLayoutPanelProducts.TabIndex = 1;
+            this.flowLayoutPanelProducts.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelProducts_Paint);
             // 
-            // button16
+            // radioButtonLocal
             // 
-            this.button16.BackColor = System.Drawing.Color.Transparent;
-            this.button16.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button16.BackgroundImage")));
-            this.button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button16.Location = new System.Drawing.Point(355, 13);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(32, 26);
-            this.button16.TabIndex = 4;
-            this.button16.UseVisualStyleBackColor = false;
+            this.radioButtonLocal.AutoSize = true;
+            this.radioButtonLocal.Checked = true;
+            this.radioButtonLocal.Location = new System.Drawing.Point(15, 81);
+            this.radioButtonLocal.Name = "radioButtonLocal";
+            this.radioButtonLocal.Size = new System.Drawing.Size(83, 17);
+            this.radioButtonLocal.TabIndex = 4;
+            this.radioButtonLocal.TabStop = true;
+            this.radioButtonLocal.Text = "Lokal Essen";
+            this.radioButtonLocal.UseVisualStyleBackColor = true;
+            this.radioButtonLocal.CheckedChanged += new System.EventHandler(this.radioButtonLocal_CheckedChanged);
+            // 
+            // radioButtonGlobal
+            // 
+            this.radioButtonGlobal.AutoSize = true;
+            this.radioButtonGlobal.Location = new System.Drawing.Point(106, 81);
+            this.radioButtonGlobal.Name = "radioButtonGlobal";
+            this.radioButtonGlobal.Size = new System.Drawing.Size(101, 17);
+            this.radioButtonGlobal.TabIndex = 5;
+            this.radioButtonGlobal.Text = "Zum Mitnehmen";
+            this.radioButtonGlobal.UseVisualStyleBackColor = true;
+            // 
+            // labelMwst
+            // 
+            this.labelMwst.AutoSize = true;
+            this.labelMwst.Location = new System.Drawing.Point(235, 81);
+            this.labelMwst.Name = "labelMwst";
+            this.labelMwst.Size = new System.Drawing.Size(35, 13);
+            this.labelMwst.TabIndex = 6;
+            this.labelMwst.Text = "label2";
             // 
             // Form1
             // 
@@ -368,10 +419,12 @@
             this.Text = "-";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelEingabe.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.flowLayoutPanelShoppingCart.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.flowLayoutPanelShoppingCart.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,6 +458,10 @@
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelShoppingCart;
         private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.TextBox textBoxTotalAmount;
+        private System.Windows.Forms.RadioButton radioButtonGlobal;
+        private System.Windows.Forms.RadioButton radioButtonLocal;
+        private System.Windows.Forms.Label labelMwst;
     }
 }
 
