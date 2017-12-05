@@ -225,6 +225,16 @@ namespace Kassensystem
                 labelMwst.Text = "7%";
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            shoppingCart.SaveToDatabase();
+        }
     }
 }
 

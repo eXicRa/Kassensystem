@@ -137,18 +137,43 @@ namespace DataAccess
         {
             if (this.shoppingCartItems != null)
             {
-                foreach (ShoppingCartItem item in shoppingCartItems)
-                {
+                
                     Order order = new Order();
                     order.Date = DateTime.Now;
                     Employee employee = new Employee();
                     employee.Id = 1;
                     order.Employee = employee;
 
-
-                    string sql = $"INSERT INTO bestellung (Datum,FK_Mitarbeiter_ID) VALUES ({order.Date.ToString("dd-MM-yyyy")}," +
+                //Insert order to database table bestellung
+                string dateStr = order.Date.ToString("yyyy-MM-dd hh:mm:ss");
+                string sql = $"INSERT INTO bestellung (Datum,FK_Mitarbeiter_ID) VALUES ('{dateStr}'," +
                         $"{order.Employee.Id.ToString()})";
                     Database.ExcecuteCommand(sql);
+
+                    //Get last order id from database table bestellung
+                    sql = "SELECT max(id) as last_item FROM bestellung";
+
+                    var  myReader = Database.ExcecuteCommand(sql);
+
+                    while (myReader.Read())
+                    {
+                        int tempID;
+                        int.TryParse(myReader["last_item"].ToString(), out tempID);
+                        //var anotherTempID = myReader["last_item"] as int?;
+                        order.Id = tempID;
+                    }
+
+                //Insert all orderpositions to database table bestellposition with order id
+                foreach (ShoppingCartItem item in shoppingCartItems)
+                {
+
+                    sql = $"INSERT INTO bestellposition (Menge,FK_Produkt_ID," +
+                        $"FK_Bestellung_ID) VALUES( {item.orderposition.Amount},{item.orderposition.Product.Id}" +
+                        $",{order.Id})";
+
+                    Database.ExcecuteCommand(sql);
+                        
+
                 }
 
             }
