@@ -14,21 +14,28 @@ namespace DataAccess
         public int Pin { get; set; }
         public Employee Boss { get; set; }
 
-        public static void LoginEmpleyee(int id, int pin)
+        public static Employee LoginEmpleyee(int id, int pin)
         {
             MySql.Data.MySqlClient.MySqlParameter idPara = new MySql.Data.MySqlClient.MySqlParameter("@id", id);
             MySql.Data.MySqlClient.MySqlParameter pinPara = new MySql.Data.MySqlClient.MySqlParameter("@pin", pin);
-            var reader = Database.ExcecuteCommand("SELECT * FROM mitarbeiter WHERE id = @id and Pin = @pin", new List<MySql.Data.MySqlClient.MySqlParameter> { idPara, pinPara });
+            var reader = Database.ExcecuteCommand("SELECT * FROM mitarbeiter WHERE id = @id and PIN = @pin", new List<MySql.Data.MySqlClient.MySqlParameter> { idPara, pinPara });
             if (!reader.HasRows)
             {
                 // login falsch
-                return;
+                return null;
             }
 
-            while (reader.Read())
-            {
-                // Employee Bauen
-            }
+
+            Employee employee = new Employee();
+            employee.Id = id;
+
+            reader.Read();
+
+            // Employee Bauen
+            employee.FirstName = reader[1].ToString();
+            employee.LastName = reader[2].ToString();
+
+            return employee;
         }
     }
 }

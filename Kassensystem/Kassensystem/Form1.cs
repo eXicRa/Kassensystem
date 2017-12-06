@@ -1,52 +1,71 @@
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using DataAccess;
 using CustomComponents;
+using DataAccess;
+using Kassensystem.Properties;
 
 namespace Kassensystem
 {
     public partial class Form1 : Form
     {
-        private ShoppingCart shoppingCart;
+        private ShoppingCart _shoppingCart;
+        private Employee _employee;
 
         public Form1()
         {
             InitializeComponent();
-
-            shoppingCart = new ShoppingCart(textBoxTotalAmount);
-            panel3.Visible = false;
-            labelMwst.Text = "";
-            radioButtonLocal.Checked = true;
-
-            var productgroups = Productgroup.GetAll();
-
-            int i = 0;
-            foreach (var item in productgroups)
-            {
-                CustomButton b = new CustomButton();
-                b.Obj = item;
-                b.FlatStyle = FlatStyle.Flat;
-                b.Text = item.Description;
-                b.Size = new Size(150, 75);
-                b.Location = new Point(175 * i, 0);
-                b.Click += showProductsToProductgroup;
-
-                panelProductgroups.Controls.Add(b);
-                i++;
-            }
+            label1.Text = "";
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
-        public void showProductsToProductgroup(object sender, EventArgs e)
+            Hide();
+
+            using (FormLogin login = new FormLogin())
+            {
+                login.ShowDialog();
+                if (login.LoginScuccess)
+                {
+                    _employee = login.Employee;
+
+                    Show();
+                    WindowState = FormWindowState.Maximized;
+
+                    _shoppingCart = new ShoppingCart(textBoxTotalAmount);
+                    panel3.Visible = false;
+                    labelMwst.Text = "";
+                    radioButtonLocal.Checked = true;
+
+                    var productgroups = Productgroup.GetAll();
+
+                    int i = 0;
+                    foreach (var item in productgroups)
+                    {
+                        CustomButton b = new CustomButton();
+                        b.Obj = item;
+                        b.FlatStyle = FlatStyle.Flat;
+                        b.Text = item.Description;
+                        b.Size = new Size(150, 75);
+                        b.Location = new Point(175 * i, 0);
+                        b.Click += ShowProductsToProductgroup;
+
+                        panelProductgroups.Controls.Add(b);
+                        i++;
+                    }
+                }
+                else
+                {
+                    Close();
+                }
+            }
+
+
+        }
+
+        public void ShowProductsToProductgroup(object sender, EventArgs e)
         {
             var button = sender as CustomButton;
             if (button != null)
@@ -65,7 +84,7 @@ namespace Kassensystem
                         buttonProduct.Size = new Size(100, 50);
                         buttonProduct.FlatStyle = FlatStyle.Flat;
                         buttonProduct.BackColor = Color.Orange;
-                        buttonProduct.Text = $"{item.Description} {item.Price}€";
+                        buttonProduct.Text = $@"{item.Description} {item.Price}€";
                         buttonProduct.Click += buttonProduct_Click;
                         flowLayoutPanelProducts.Controls.Add(buttonProduct);
                     }
@@ -86,11 +105,11 @@ namespace Kassensystem
                     int amount;
                     if (int.TryParse(tb_NumpadDisplay.Text, out amount))
                     {
-                        item = shoppingCart.AddProduct(product, out isNewProduct, amount);
+                        item = _shoppingCart.AddProduct(product, out isNewProduct, amount);
                     }
                     else
                     {
-                        item = shoppingCart.AddProduct(product, out isNewProduct);
+                        item = _shoppingCart.AddProduct(product, out isNewProduct);
                     }
                     if (isNewProduct)
                     {
@@ -105,54 +124,54 @@ namespace Kassensystem
         {
             CustomButton minusButton = new CustomButton();
 
-            minusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            minusButton.Location = new System.Drawing.Point(192, 13);
-            minusButton.Size = new System.Drawing.Size(32, 26);
+            minusButton.FlatStyle = FlatStyle.Flat;
+            minusButton.Location = new Point(192, 13);
+            minusButton.Size = new Size(32, 26);
             minusButton.TabIndex = 2;
-            minusButton.Text = "-";
+            minusButton.Text = @"-";
             minusButton.UseVisualStyleBackColor = true;
             minusButton.Obj = item;
-            minusButton.Click += shoppingCart.Alter;
+            minusButton.Click += _shoppingCart.Alter;
 
             CustomButton plusButton = new CustomButton();
 
-            plusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            plusButton.Location = new System.Drawing.Point(317, 13);
-            plusButton.Size = new System.Drawing.Size(32, 26);
+            plusButton.FlatStyle = FlatStyle.Flat;
+            plusButton.Location = new Point(317, 13);
+            plusButton.Size = new Size(32, 26);
             plusButton.TabIndex = 3;
-            plusButton.Text = "+";
+            plusButton.Text = @"+";
             plusButton.UseVisualStyleBackColor = true;
             plusButton.Obj = item;
-            plusButton.Click += shoppingCart.Alter;
+            plusButton.Click += _shoppingCart.Alter;
 
             Label productLabel = new Label();
 
             productLabel.AutoSize = true;
-            productLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            productLabel.Location = new System.Drawing.Point(6, 15);
+            productLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            productLabel.Location = new Point(6, 15);
             productLabel.Name = "label1";
-            productLabel.Size = new System.Drawing.Size(75, 20);
+            productLabel.Size = new Size(75, 20);
             productLabel.TabIndex = 0;
             var price = item.orderposition.Amount * item.orderposition.Product.Price;
-            productLabel.Text = price.ToString("c2") + $" {item.orderposition.Product}";
+            productLabel.Text = price.ToString("c2") + $@" {item.orderposition.Product}";
 
             TextBox amountTextBox = new TextBox();
 
-            amountTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            amountTextBox.Location = new System.Drawing.Point(230, 13);
-            amountTextBox.Size = new System.Drawing.Size(81, 26);
+            amountTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            amountTextBox.Location = new Point(230, 13);
+            amountTextBox.Size = new Size(81, 26);
             amountTextBox.TabIndex = 1;
             amountTextBox.Text = item.orderposition.Amount.ToString();
-            amountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            amountTextBox.TextAlign = HorizontalAlignment.Center;
 
             CustomButton buttonTrash = new CustomButton();
 
-            buttonTrash.BackColor = System.Drawing.Color.Transparent;
-            buttonTrash.BackgroundImage = Properties.Resources.trash;
-            buttonTrash.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            buttonTrash.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            buttonTrash.Location = new System.Drawing.Point(355, 13);
-            buttonTrash.Size = new System.Drawing.Size(32, 26);
+            buttonTrash.BackColor = Color.Transparent;
+            buttonTrash.BackgroundImage = Resources.trash;
+            buttonTrash.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonTrash.FlatStyle = FlatStyle.Popup;
+            buttonTrash.Location = new Point(355, 13);
+            buttonTrash.Size = new Size(32, 26);
             buttonTrash.TabIndex = 4;
             buttonTrash.UseVisualStyleBackColor = false;
             buttonTrash.Obj = item;
@@ -170,8 +189,8 @@ namespace Kassensystem
             panel.Controls.Add(amountTextBox);
             panel.Controls.Add(productLabel);
             panel.Controls.Add(buttonTrash);
-            panel.Location = new System.Drawing.Point(3, 20);
-            panel.Size = new System.Drawing.Size(398, 53);
+            panel.Location = new Point(3, 20);
+            panel.Size = new Size(398, 53);
 
             item.panel = panel;
 
@@ -186,14 +205,9 @@ namespace Kassensystem
                 var item = button.Obj as ShoppingCartItem;
                 if (item != null)
                 {
-                    shoppingCart.DeleteProduct(item);
+                    _shoppingCart.DeleteProduct(item);
                 }
             }
-        }
-
-        private void button14_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void flowLayoutPanelProducts_Paint(object sender, PaintEventArgs e)
@@ -219,27 +233,26 @@ namespace Kassensystem
         {
             if (radioButtonLocal.Checked)
             {
-                labelMwst.Text = "19%";
-                shoppingCart.MwSt = 19;
-                shoppingCart.CalculateTotalAmount();
+                labelMwst.Text = @"19%";
+                _shoppingCart.MwSt = 19;
+                _shoppingCart.CalculateTotalAmount();
             }
             else
             {
-                labelMwst.Text = "7%";
-                shoppingCart.MwSt = 7;
-                shoppingCart.CalculateTotalAmount();
+                labelMwst.Text = @"7%";
+                _shoppingCart.MwSt = 7;
+                _shoppingCart.CalculateTotalAmount();
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
-        }
 
         private void button17_Click(object sender, EventArgs e)
         {
-            shoppingCart.SaveToDatabase();
+            _shoppingCart.SaveToDatabase();
         }
+
+
     }
 }
 
