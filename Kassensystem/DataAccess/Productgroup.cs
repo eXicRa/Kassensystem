@@ -18,6 +18,7 @@ namespace DataAccess
 
         }
 
+        //Johann,Nils
         public Productgroup(int id)
         {
             MySqlParameter mySqlParameter = new MySqlParameter("@id", id);
@@ -30,6 +31,7 @@ namespace DataAccess
             }
         }
 
+        //Johann,Nils
         public static List<Productgroup> GetAll()
         {
             var reader = Database.ExcecuteCommand("SELECT * FROM Produktgruppe");
@@ -47,6 +49,7 @@ namespace DataAccess
             return productgroups;
         }
 
+        //Johann,Nils
         public void GetAllProducts()
         {
             MySqlParameter para = new MySqlParameter("@id", this.Id);

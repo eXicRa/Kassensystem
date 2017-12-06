@@ -92,6 +92,7 @@ namespace Kassensystem
             }
         }
 
+        //René
         private void buttonProduct_Click(object sender, EventArgs e)
         {
             var cusButton = sender as CustomButton;
@@ -120,6 +121,7 @@ namespace Kassensystem
             }
         }
 
+        //René
         private void GenerateOrderPosition(ShoppingCartItem item)
         {
             CustomButton minusButton = new CustomButton();
@@ -152,8 +154,8 @@ namespace Kassensystem
             productLabel.Name = "label1";
             productLabel.Size = new Size(75, 20);
             productLabel.TabIndex = 0;
-            var price = item.orderposition.Amount * item.orderposition.Product.Price;
-            productLabel.Text = price.ToString("c2") + $@" {item.orderposition.Product}";
+            var price = item.Orderposition.Amount * item.Orderposition.Product.Price;
+            productLabel.Text = price.ToString("c2") + $@" {item.Orderposition.Product}";
 
             TextBox amountTextBox = new TextBox();
 
@@ -161,7 +163,7 @@ namespace Kassensystem
             amountTextBox.Location = new Point(230, 13);
             amountTextBox.Size = new Size(81, 26);
             amountTextBox.TabIndex = 1;
-            amountTextBox.Text = item.orderposition.Amount.ToString();
+            amountTextBox.Text = item.Orderposition.Amount.ToString();
             amountTextBox.TextAlign = HorizontalAlignment.Center;
 
             CustomButton buttonTrash = new CustomButton();
@@ -177,10 +179,10 @@ namespace Kassensystem
             buttonTrash.Obj = item;
             buttonTrash.Click += buttonTrash_Click;
 
-            item.buttonMinus = minusButton;
-            item.buttonPlus = plusButton;
-            item.label = productLabel;
-            item.textBox = amountTextBox;
+            item.ButtonMinus = minusButton;
+            item.ButtonPlus = plusButton;
+            item.Label = productLabel;
+            item.TextBox = amountTextBox;
 
             CustomPanel panel = new CustomPanel();
 
@@ -192,7 +194,7 @@ namespace Kassensystem
             panel.Location = new Point(3, 20);
             panel.Size = new Size(398, 53);
 
-            item.panel = panel;
+            item.Panel = panel;
 
             flowLayoutPanelShoppingCart.Controls.Add(panel);
         }

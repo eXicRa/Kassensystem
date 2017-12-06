@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
+    //Johann,Nils
     class Discount
     {
         public int Id { get; set; }

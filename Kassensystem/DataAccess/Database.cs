@@ -10,16 +10,18 @@ using MySql.Data.MySqlClient;
 
 namespace DataAccess
 {
+    //Johann,Nils
     public static class Database
     {
-        private readonly static string connectionString = "SERVER=localhost;" +
+        private static readonly string connectionString = "SERVER=localhost;" +
                             "DATABASE=Kassensystem;" +
-                            "UID=itt35;" +
-                            "PASSWORD=itt35;";
+                            "UID=root;" +
+                            "PASSWORD=;";
 
         private static MySqlConnection _sqlConnection;
         private static MySqlDataReader reader;
 
+        //Johann,Nils
         private static MySqlConnection GetSqlConnection()
         {
             if (_sqlConnection == null)
@@ -30,6 +32,7 @@ namespace DataAccess
             return _sqlConnection;
         }
 
+        //Johann,Nils
         public static MySqlDataReader ExcecuteCommand(string sql, List<MySqlParameter> parameter = null)
         {
             var sqlConnection = GetSqlConnection();

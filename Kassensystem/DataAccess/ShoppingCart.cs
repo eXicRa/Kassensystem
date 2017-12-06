@@ -5,7 +5,11 @@ using System.Windows.Forms;
 
 namespace DataAccess
 {
-    //Class shopping card of checkout system
+
+    /// <summary>
+    /// Class shopping card of checkout system
+    /// Eric, René
+    /// </summary>
     public class ShoppingCart
     {
 
@@ -13,7 +17,7 @@ namespace DataAccess
         private TextBox tbTotalAmount;
         public int MwSt { get; set; }
 
-        //Create method of shopping card, creates a new shopping card list of type OrderPositions
+        //Create method of shopping cart, creates a new shopping card list of type OrderPositions
         public ShoppingCart(TextBox tb)
         {
             shoppingCartItems = new List<ShoppingCartItem>();
@@ -21,6 +25,7 @@ namespace DataAccess
             MwSt = 19; //default 19%
         }
         //Method cleans the shopping card list, so all objects will be deleted
+        //Eric
         public void Free()
         {
             if (shoppingCartItems != null)
@@ -29,12 +34,13 @@ namespace DataAccess
             }
         }
 
+        //René
         public void CalculateTotalAmount()
         {
             double totalAmount = 0;
             foreach (var item in shoppingCartItems)
             {
-                var tempPrice = item.orderposition.Amount * item.orderposition.Product.Price;
+                var tempPrice = item.Orderposition.Amount * item.Orderposition.Product.Price;
                 totalAmount += tempPrice;
             }
 
@@ -43,6 +49,7 @@ namespace DataAccess
         }
 
         //Method adds a new product object to the shopping card list, default value of amount is 1
+        //Eric 
         public ShoppingCartItem AddProduct(Product product, out bool isNewProduct, int amount = 1)
         {
             isNewProduct = true;
@@ -50,9 +57,9 @@ namespace DataAccess
             {
                 foreach (var item in shoppingCartItems)
                 {
-                    if (item.orderposition.Product.Id == product.Id)
+                    if (item.Orderposition.Product.Id == product.Id)
                     {
-                        Alter(item, item.orderposition.Amount + amount);
+                        Alter(item, item.Orderposition.Amount + amount);
                         isNewProduct = false;
                         CalculateTotalAmount();
                         return item;
@@ -64,7 +71,7 @@ namespace DataAccess
                 orderPos.Amount = amount;
 
                 ShoppingCartItem shoppingCartItem = new ShoppingCartItem();
-                shoppingCartItem.orderposition = orderPos;
+                shoppingCartItem.Orderposition = orderPos;
 
                 shoppingCartItems.Add(shoppingCartItem);
 
@@ -74,6 +81,7 @@ namespace DataAccess
             return null;
         }
         //Method alter the amount of the given product object from the shopping card list
+        //Eric 
         public void Alter(ShoppingCartItem shoppingCartItem, int newAmount)
         {
             if (shoppingCartItems != null)
@@ -83,17 +91,18 @@ namespace DataAccess
                     DeleteProduct(shoppingCartItem);
                     return;
                 }
-                shoppingCartItem.orderposition.Amount = newAmount;
+                shoppingCartItem.Orderposition.Amount = newAmount;
 
                 CalculateTotalAmount();
 
-                shoppingCartItem.textBox.Text = newAmount.ToString();
-                var price = shoppingCartItem.orderposition.Amount * shoppingCartItem.orderposition.Product.Price;
-                shoppingCartItem.label.Text = price.ToString("c2") + $" {shoppingCartItem.orderposition.Product.Description}";
+                shoppingCartItem.TextBox.Text = newAmount.ToString();
+                var price = shoppingCartItem.Orderposition.Amount * shoppingCartItem.Orderposition.Product.Price;
+                shoppingCartItem.Label.Text = price.ToString("c2") + $" {shoppingCartItem.Orderposition.Product.Description}";
             }
         }
 
         //Method deletes the given product object from the shopping card list
+        //Eric
         public void DeleteProduct(ShoppingCartItem item)
         {
             if (shoppingCartItems != null)
@@ -102,7 +111,7 @@ namespace DataAccess
                 {
                     if (item_ == item)
                     {
-                        item_.panel.Parent.Controls.Remove(item_.panel);
+                        item_.Panel.Parent.Controls.Remove(item_.Panel);
                         shoppingCartItems.Remove(item_);
                         CalculateTotalAmount();
                         break;
@@ -111,6 +120,7 @@ namespace DataAccess
             }
         }
 
+        //René
         public void Alter(object sender, EventArgs e)
         {
             var button = sender as CustomButton;
@@ -122,11 +132,11 @@ namespace DataAccess
                     int amount;
                     if (button.Text == "-")
                     {
-                        amount = shoppingCartItem.orderposition.Amount - 1;
+                        amount = shoppingCartItem.Orderposition.Amount - 1;
                     }
                     else
                     {
-                        amount = shoppingCartItem.orderposition.Amount + 1;
+                        amount = shoppingCartItem.Orderposition.Amount + 1;
                     }
 
                     Alter(shoppingCartItem, amount);
@@ -171,7 +181,7 @@ namespace DataAccess
                 {
 
                     sql = $"INSERT INTO bestellposition (Menge,FK_Produkt_ID," +
-                        $"FK_Bestellung_ID) VALUES( {item.orderposition.Amount},{item.orderposition.Product.Id}" +
+                        $"FK_Bestellung_ID) VALUES( {item.Orderposition.Amount},{item.Orderposition.Product.Id}" +
                         $",{order.Id})";
 
                     Database.ExcecuteCommand(sql);

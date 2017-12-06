@@ -14,6 +14,7 @@ namespace DataAccess
         public int Pin { get; set; }
         public Employee Boss { get; set; }
 
+        //Johann,Nils
         public static Employee LoginEmpleyee(int id, int pin)
         {
             MySql.Data.MySqlClient.MySqlParameter idPara = new MySql.Data.MySqlClient.MySqlParameter("@id", id);
