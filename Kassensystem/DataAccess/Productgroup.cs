@@ -62,7 +62,7 @@ namespace DataAccess
 
                 produkt.Id = reader.GetInt32(0);
                 produkt.Description = reader.GetString(1);
-                produkt.Price = reader.GetDouble(2);
+                produkt.Price = reader.GetDecimal(2);
 
                 Products.Add(produkt);
             }

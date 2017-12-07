@@ -11,7 +11,7 @@ namespace DataAccess
     {
         public int Id { get; set; }
         public String Description { get; set; }
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         public Productgroup Productgroup { get; set; }
         List<Discount> Discount { get; set; }
 
@@ -31,7 +31,7 @@ namespace DataAccess
             {
                 Id = reader.GetInt32(0);
                 Description = reader.GetString(1);
-                Price = reader.GetDouble(2);
+                Price = reader.GetDecimal(2);
             }
         }
 
@@ -47,7 +47,7 @@ namespace DataAccess
 
                 produkt.Id = reader.GetInt32(0);
                 produkt.Description = reader.GetString(1);
-                produkt.Price = reader.GetDouble(2);
+                produkt.Price = reader.GetDecimal(2);
 
                 products.Add(produkt);
             }

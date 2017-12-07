@@ -30,14 +30,17 @@ namespace DataAccess
         {
             if (shoppingCartItems != null)
             {
-                shoppingCartItems.Clear();
+                for (int i = shoppingCartItems.Count - 1; i >= 0; i--)
+                {
+                    DeleteItem(shoppingCartItems[i]);
+                }
             }
         }
 
         //René
-        public void CalculateTotalAmount()
+        public decimal CalculateTotalAmount()
         {
-            double totalAmount = 0;
+            decimal totalAmount = 0;
             foreach (var item in shoppingCartItems)
             {
                 var tempPrice = item.Orderposition.Amount * item.Orderposition.Product.Price;
@@ -46,6 +49,7 @@ namespace DataAccess
 
             totalAmount = (totalAmount * MwSt / 100) + totalAmount;
             tbTotalAmount.Text = totalAmount.ToString("c2");
+            return totalAmount;
         }
 
         //Method adds a new product object to the shopping card list, default value of amount is 1
@@ -88,7 +92,7 @@ namespace DataAccess
             {
                 if (newAmount <= 0)
                 {
-                    DeleteProduct(shoppingCartItem);
+                    DeleteItem(shoppingCartItem);
                     return;
                 }
                 shoppingCartItem.Orderposition.Amount = newAmount;
@@ -96,14 +100,14 @@ namespace DataAccess
                 CalculateTotalAmount();
 
                 shoppingCartItem.TextBox.Text = newAmount.ToString();
-                var price = shoppingCartItem.Orderposition.Amount * shoppingCartItem.Orderposition.Product.Price;
+                decimal price = shoppingCartItem.Orderposition.Amount * shoppingCartItem.Orderposition.Product.Price;
                 shoppingCartItem.Label.Text = price.ToString("c2") + $" {shoppingCartItem.Orderposition.Product.Description}";
             }
         }
 
         //Method deletes the given product object from the shopping card list
         //Eric
-        public void DeleteProduct(ShoppingCartItem item)
+        public void DeleteItem(ShoppingCartItem item)
         {
             if (shoppingCartItems != null)
             {
@@ -150,31 +154,31 @@ namespace DataAccess
         {
             if (this.shoppingCartItems != null)
             {
-                
-                    Order order = new Order();
-                    order.Date = DateTime.Now;
-                    Employee employee = new Employee();
-                    employee.Id = 1;
-                    order.Employee = employee;
+
+                Order order = new Order();
+                order.Date = DateTime.Now;
+                Employee employee = new Employee();
+                employee.Id = 1;
+                order.Employee = employee;
 
                 //Insert order to database table bestellung
                 string dateStr = order.Date.ToString("yyyy-MM-dd hh:mm:ss");
                 string sql = $"INSERT INTO bestellung (Datum,FK_Mitarbeiter_ID) VALUES ('{dateStr}'," +
                         $"{order.Employee.Id.ToString()})";
-                    Database.ExcecuteCommand(sql);
+                Database.ExcecuteCommand(sql);
 
-                    //Get last order id from database table bestellung
-                    sql = "SELECT max(id) as last_item FROM bestellung";
+                //Get last order id from database table bestellung
+                sql = "SELECT max(id) as last_item FROM bestellung";
 
-                    var  myReader = Database.ExcecuteCommand(sql);
+                var myReader = Database.ExcecuteCommand(sql);
 
-                    while (myReader.Read())
-                    {
-                        int tempID;
-                        int.TryParse(myReader["last_item"].ToString(), out tempID);
-                        //var anotherTempID = myReader["last_item"] as int?;
-                        order.Id = tempID;
-                    }
+                while (myReader.Read())
+                {
+                    int tempID;
+                    int.TryParse(myReader["last_item"].ToString(), out tempID);
+                    //var anotherTempID = myReader["last_item"] as int?;
+                    order.Id = tempID;
+                }
 
                 //Insert all orderpositions to database table bestellposition with order id
                 foreach (ShoppingCartItem item in shoppingCartItems)
@@ -185,7 +189,7 @@ namespace DataAccess
                         $",{order.Id})";
 
                     Database.ExcecuteCommand(sql);
-                        
+
 
                 }
 

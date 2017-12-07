@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.textBoxPayment = new System.Windows.Forms.TextBox();
             this.textBoxTotalPrice = new System.Windows.Forms.TextBox();
             this.panelEingabe = new System.Windows.Forms.Panel();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -45,38 +46,32 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBoxChange = new System.Windows.Forms.TextBox();
             this.panelEingabe.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 93);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 25);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "label1";
             // 
             // textBoxPayment
             // 
             this.textBoxPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPayment.Location = new System.Drawing.Point(20, 49);
             this.textBoxPayment.Name = "textBoxPayment";
-            this.textBoxPayment.PasswordChar = '*';
             this.textBoxPayment.Size = new System.Drawing.Size(312, 31);
             this.textBoxPayment.TabIndex = 7;
+            this.textBoxPayment.TextChanged += new System.EventHandler(this.textBoxPayment_TextChanged);
             // 
             // textBoxTotalPrice
             // 
             this.textBoxTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTotalPrice.Location = new System.Drawing.Point(20, 12);
             this.textBoxTotalPrice.Name = "textBoxTotalPrice";
+            this.textBoxTotalPrice.ReadOnly = true;
             this.textBoxTotalPrice.Size = new System.Drawing.Size(312, 31);
             this.textBoxTotalPrice.TabIndex = 6;
             // 
             // panelEingabe
             // 
+            this.panelEingabe.Controls.Add(this.button15);
+            this.panelEingabe.Controls.Add(this.button14);
             this.panelEingabe.Controls.Add(this.button13);
             this.panelEingabe.Controls.Add(this.button12);
             this.panelEingabe.Controls.Add(this.button11);
@@ -92,8 +87,32 @@
             this.panelEingabe.Controls.Add(this.button1);
             this.panelEingabe.Location = new System.Drawing.Point(6, 124);
             this.panelEingabe.Name = "panelEingabe";
-            this.panelEingabe.Size = new System.Drawing.Size(345, 505);
+            this.panelEingabe.Size = new System.Drawing.Size(345, 564);
             this.panelEingabe.TabIndex = 5;
+            // 
+            // button15
+            // 
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.Location = new System.Drawing.Point(174, 500);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(153, 51);
+            this.button15.TabIndex = 14;
+            this.button15.Text = "Abbruch";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // button14
+            // 
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.Location = new System.Drawing.Point(14, 500);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(153, 51);
+            this.button14.TabIndex = 13;
+            this.button14.Text = "Ok";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button13
             // 
@@ -249,12 +268,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.buttonNumPad_Click);
             // 
+            // textBoxChange
+            // 
+            this.textBoxChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxChange.Location = new System.Drawing.Point(20, 87);
+            this.textBoxChange.Name = "textBoxChange";
+            this.textBoxChange.ReadOnly = true;
+            this.textBoxChange.Size = new System.Drawing.Size(312, 31);
+            this.textBoxChange.TabIndex = 8;
+            // 
             // FormCheckout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 634);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(374, 700);
+            this.Controls.Add(this.textBoxChange);
             this.Controls.Add(this.textBoxPayment);
             this.Controls.Add(this.textBoxTotalPrice);
             this.Controls.Add(this.panelEingabe);
@@ -267,8 +295,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxPayment;
         private System.Windows.Forms.TextBox textBoxTotalPrice;
         private System.Windows.Forms.Panel panelEingabe;
@@ -285,5 +311,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBoxChange;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button14;
     }
 }

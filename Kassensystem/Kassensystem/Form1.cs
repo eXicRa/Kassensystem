@@ -207,7 +207,7 @@ namespace Kassensystem
                 var item = button.Obj as ShoppingCartItem;
                 if (item != null)
                 {
-                    _shoppingCart.DeleteProduct(item);
+                    _shoppingCart.DeleteItem(item);
                 }
             }
         }
@@ -251,7 +251,15 @@ namespace Kassensystem
 
         private void button17_Click(object sender, EventArgs e)
         {
-            _shoppingCart.SaveToDatabase();
+            using (FormCheckout formCheckout = new FormCheckout(_shoppingCart.CalculateTotalAmount()))
+            {
+                formCheckout.ShowDialog();
+                if (formCheckout.CheckOutSuccess)
+                {
+                    _shoppingCart.SaveToDatabase();
+                    _shoppingCart.Free();
+                }
+            }
         }
 
 
