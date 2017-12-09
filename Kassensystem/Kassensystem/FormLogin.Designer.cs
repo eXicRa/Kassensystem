@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.panelEingabe = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
@@ -260,8 +261,12 @@
             this.Controls.Add(this.textBoxPin);
             this.Controls.Add(this.textBoxUser);
             this.Controls.Add(this.panelEingabe);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(375, 680);
+            this.MinimumSize = new System.Drawing.Size(375, 680);
             this.Name = "FormLogin";
-            this.Text = "FormLogin";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.panelEingabe.ResumeLayout(false);
             this.ResumeLayout(false);

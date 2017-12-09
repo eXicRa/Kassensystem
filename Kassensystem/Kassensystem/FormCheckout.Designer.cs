@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCheckout));
             this.textBoxPayment = new System.Windows.Forms.TextBox();
             this.textBoxTotalPrice = new System.Windows.Forms.TextBox();
             this.panelEingabe = new System.Windows.Forms.Panel();
@@ -104,6 +105,7 @@
             // 
             // button14
             // 
+            this.button14.Enabled = false;
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.Location = new System.Drawing.Point(14, 500);
@@ -146,7 +148,9 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(100, 100);
             this.button11.TabIndex = 10;
+            this.button11.Text = ",";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.buttonNumPad_Click);
             // 
             // button10
             // 
@@ -286,8 +290,12 @@
             this.Controls.Add(this.textBoxPayment);
             this.Controls.Add(this.textBoxTotalPrice);
             this.Controls.Add(this.panelEingabe);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(390, 739);
+            this.MinimumSize = new System.Drawing.Size(390, 739);
             this.Name = "FormCheckout";
-            this.Text = "FormCheckout";
+            this.Text = "Checkout";
             this.panelEingabe.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -163,8 +163,8 @@ namespace DataAccess
 
                 //Insert order to database table bestellung
                 string dateStr = order.Date.ToString("yyyy-MM-dd hh:mm:ss");
-                string sql = $"INSERT INTO bestellung (Datum,FK_Mitarbeiter_ID) VALUES ('{dateStr}'," +
-                        $"{order.Employee.Id.ToString()})";
+                string sql = $"INSERT INTO bestellung (Datum,FK_Mitarbeiter_ID,MwSt) VALUES ('{dateStr}'," +
+                        $"{order.Employee.Id.ToString()},{MwSt})";
                 Database.ExcecuteCommand(sql);
 
                 //Get last order id from database table bestellung

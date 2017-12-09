@@ -83,8 +83,8 @@ namespace Kassensystem
                         buttonProduct.Obj = item;
                         buttonProduct.Size = new Size(100, 50);
                         buttonProduct.FlatStyle = FlatStyle.Flat;
-                        buttonProduct.BackColor = Color.Orange;
-                        buttonProduct.Text = $@"{item.Description} {item.Price}€";
+                        buttonProduct.BackColor = Color.LightGray;
+                        buttonProduct.Text = $@"{item.Description} {Environment.NewLine} {item.Price}€";
                         buttonProduct.Click += buttonProduct_Click;
                         flowLayoutPanelProducts.Controls.Add(buttonProduct);
                     }
@@ -222,7 +222,15 @@ namespace Kassensystem
             var buttonVar = sender as Button;
             if (buttonVar != null)
             {
-                tb_NumpadDisplay.Text += buttonVar.Text;
+                if ((buttonVar.Text == @",") && (tb_NumpadDisplay.Text.IndexOf(',') > -1))
+                {
+                    return;
+                }
+                else
+                {
+                    tb_NumpadDisplay.Text += buttonVar.Text;
+                }
+
             }
         }
 
@@ -251,6 +259,10 @@ namespace Kassensystem
 
         private void button17_Click(object sender, EventArgs e)
         {
+            if (_shoppingCart.shoppingCartItems.Count <= 0)
+            {
+                return;
+            }
             using (FormCheckout formCheckout = new FormCheckout(_shoppingCart.CalculateTotalAmount()))
             {
                 formCheckout.ShowDialog();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,9 +28,9 @@ namespace Kassensystem
             var button = sender as Button;
             if (button != null)
             {
-                if ((button.Text == @",") && (textBoxPayment.Text.IndexOf('.') > -1))
+                if ((button.Text == @",") && (textBoxPayment.Text.IndexOf(',') > -1))
                 {
-                    textBoxPayment.Text += button.Text;
+                    return;
                 }
                 else
                 {
@@ -45,15 +46,17 @@ namespace Kassensystem
 
         private void button13_Click(object sender, EventArgs e)
         {
-            decimal payment;
-            var paymentStr = textBoxPayment.Text;
-            if (decimal.TryParse(textBoxPayment.Text, out payment))
+            try
             {
+                decimal payment;
+                var paymentStr = textBoxPayment.Text;//.Replace(',', '.');
+                payment = decimal.Parse(paymentStr, new NumberFormatInfo() { NumberDecimalSeparator = "," });
                 var change = payment - _price;
                 if (change >= 0)
                 {
                     textBoxChange.Text = change.ToString("c2");
                     CheckOutSuccess = true;
+                    button14.Enabled = true;
                     return;
                 }
                 else
@@ -63,8 +66,11 @@ namespace Kassensystem
                     return;
                 }
             }
-            textBoxChange.Text = @"Falscher Preis angegeben";
-            CheckOutSuccess = false;
+            catch
+            {
+                textBoxChange.Text = @"Falscher Preis angegeben";
+                CheckOutSuccess = false;
+            }
         }
 
         private void button14_Click(object sender, EventArgs e)

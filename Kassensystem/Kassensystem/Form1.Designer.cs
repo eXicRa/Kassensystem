@@ -70,6 +70,7 @@
             // panelEingabe
             // 
             this.panelEingabe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelEingabe.Controls.Add(this.buttonCheckout);
             this.panelEingabe.Controls.Add(this.button13);
             this.panelEingabe.Controls.Add(this.button12);
             this.panelEingabe.Controls.Add(this.button11);
@@ -83,9 +84,9 @@
             this.panelEingabe.Controls.Add(this.button3);
             this.panelEingabe.Controls.Add(this.button2);
             this.panelEingabe.Controls.Add(this.button1);
-            this.panelEingabe.Location = new System.Drawing.Point(886, 133);
+            this.panelEingabe.Location = new System.Drawing.Point(888, 94);
             this.panelEingabe.Name = "panelEingabe";
-            this.panelEingabe.Size = new System.Drawing.Size(345, 505);
+            this.panelEingabe.Size = new System.Drawing.Size(345, 558);
             this.panelEingabe.TabIndex = 0;
             // 
             // button13
@@ -258,7 +259,7 @@
             // 
             this.labelMwst.AutoSize = true;
             this.labelMwst.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMwst.Location = new System.Drawing.Point(212, 75);
+            this.labelMwst.Location = new System.Drawing.Point(246, 78);
             this.labelMwst.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMwst.Name = "labelMwst";
             this.labelMwst.Size = new System.Drawing.Size(60, 24);
@@ -268,9 +269,10 @@
             // radioButtonGlobal
             // 
             this.radioButtonGlobal.AutoSize = true;
-            this.radioButtonGlobal.Location = new System.Drawing.Point(106, 81);
+            this.radioButtonGlobal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonGlobal.Location = new System.Drawing.Point(121, 81);
             this.radioButtonGlobal.Name = "radioButtonGlobal";
-            this.radioButtonGlobal.Size = new System.Drawing.Size(101, 17);
+            this.radioButtonGlobal.Size = new System.Drawing.Size(120, 20);
             this.radioButtonGlobal.TabIndex = 5;
             this.radioButtonGlobal.Text = "Zum Mitnehmen";
             this.radioButtonGlobal.UseVisualStyleBackColor = true;
@@ -278,12 +280,11 @@
             // radioButtonLocal
             // 
             this.radioButtonLocal.AutoSize = true;
-            this.radioButtonLocal.Checked = true;
+            this.radioButtonLocal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonLocal.Location = new System.Drawing.Point(15, 81);
             this.radioButtonLocal.Name = "radioButtonLocal";
-            this.radioButtonLocal.Size = new System.Drawing.Size(83, 17);
+            this.radioButtonLocal.Size = new System.Drawing.Size(100, 20);
             this.radioButtonLocal.TabIndex = 4;
-            this.radioButtonLocal.TabStop = true;
             this.radioButtonLocal.Text = "Lokal Essen";
             this.radioButtonLocal.UseVisualStyleBackColor = true;
             this.radioButtonLocal.CheckedChanged += new System.EventHandler(this.radioButtonLocal_CheckedChanged);
@@ -299,18 +300,23 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.Controls.Add(this.flowLayoutPanelShoppingCart);
             this.panel2.Location = new System.Drawing.Point(12, 132);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(404, 506);
+            this.panel2.Size = new System.Drawing.Size(404, 520);
             this.panel2.TabIndex = 2;
             // 
             // flowLayoutPanelShoppingCart
             // 
+            this.flowLayoutPanelShoppingCart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.flowLayoutPanelShoppingCart.AutoScroll = true;
             this.flowLayoutPanelShoppingCart.Controls.Add(this.panel3);
             this.flowLayoutPanelShoppingCart.Location = new System.Drawing.Point(3, 50);
             this.flowLayoutPanelShoppingCart.Name = "flowLayoutPanelShoppingCart";
-            this.flowLayoutPanelShoppingCart.Size = new System.Drawing.Size(398, 449);
+            this.flowLayoutPanelShoppingCart.Size = new System.Drawing.Size(398, 467);
             this.flowLayoutPanelShoppingCart.TabIndex = 3;
             // 
             // panel3
@@ -381,36 +387,39 @@
             // 
             this.tb_NumpadDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_NumpadDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_NumpadDisplay.Location = new System.Drawing.Point(886, 13);
+            this.tb_NumpadDisplay.Location = new System.Drawing.Point(903, 13);
             this.tb_NumpadDisplay.Name = "tb_NumpadDisplay";
-            this.tb_NumpadDisplay.Size = new System.Drawing.Size(345, 67);
+            this.tb_NumpadDisplay.Size = new System.Drawing.Size(312, 67);
             this.tb_NumpadDisplay.TabIndex = 0;
             // 
             // panelProductgroups
             // 
             this.panelProductgroups.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelProductgroups.Location = new System.Drawing.Point(423, 13);
+            this.panelProductgroups.AutoScroll = true;
+            this.panelProductgroups.Location = new System.Drawing.Point(457, 13);
             this.panelProductgroups.Name = "panelProductgroups";
-            this.panelProductgroups.Size = new System.Drawing.Size(457, 113);
+            this.panelProductgroups.Size = new System.Drawing.Size(389, 113);
             this.panelProductgroups.TabIndex = 2;
             // 
             // flowLayoutPanelProducts
             // 
-            this.flowLayoutPanelProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.flowLayoutPanelProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanelProducts.AutoScroll = true;
-            this.flowLayoutPanelProducts.Location = new System.Drawing.Point(423, 133);
+            this.flowLayoutPanelProducts.Location = new System.Drawing.Point(457, 133);
             this.flowLayoutPanelProducts.Name = "flowLayoutPanelProducts";
-            this.flowLayoutPanelProducts.Size = new System.Drawing.Size(457, 505);
+            this.flowLayoutPanelProducts.Size = new System.Drawing.Size(389, 519);
             this.flowLayoutPanelProducts.TabIndex = 1;
             this.flowLayoutPanelProducts.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelProducts_Paint);
             // 
             // buttonCheckout
             // 
+            this.buttonCheckout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCheckout.Location = new System.Drawing.Point(901, 644);
+            this.buttonCheckout.Location = new System.Drawing.Point(15, 500);
             this.buttonCheckout.Name = "buttonCheckout";
             this.buttonCheckout.Size = new System.Drawing.Size(312, 51);
             this.buttonCheckout.TabIndex = 14;
@@ -423,16 +432,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1254, 675);
-            this.Controls.Add(this.buttonCheckout);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tb_NumpadDisplay);
             this.Controls.Add(this.flowLayoutPanelProducts);
             this.Controls.Add(this.panelProductgroups);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelEingabe);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(1270, 714);
             this.Name = "Form1";
-            this.Text = "-";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelEingabe.ResumeLayout(false);
