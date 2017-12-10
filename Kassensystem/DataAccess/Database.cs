@@ -15,8 +15,8 @@ namespace DataAccess
     {
         private static readonly string connectionString = "SERVER=localhost;" +
                             "DATABASE=Kassensystem;" +
-                            "UID=root;" +
-                            "PASSWORD=;";
+                            "UID=itt35;" +
+                            "PASSWORD=itt35;";
 
         private static MySqlConnection _sqlConnection;
         private static MySqlDataReader reader;
